@@ -1,0 +1,26 @@
+@use "./variables";
+@use "sass:map";
+
+@mixin flex($direction, $justify, $align, $gap: 0) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  gap: $gap;
+}
+
+// @mixin position($position-type, $properties) {
+//   position: $position-type;
+//   @each $property, $value in $properties {
+//     #{$property}: $value;
+//   }
+// }
+
+@mixin mediaQuery($key) {
+  $size: map.get(variables.$breakpoints, $key);
+  @media screen and (min-width: $size) {
+    @content;
+  }
+}
+
+

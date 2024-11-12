@@ -1,0 +1,98 @@
+@use "../abstract/mixins";
+
+.header {
+  // Flex layout for row direction and  justify-content: center, align-item: space-between.
+  @include mixins.flex(row, space-between, center);
+  padding: 0.93em;
+  position: relative;
+
+  svg {
+    width: 20px;
+  }
+
+  &__mobie-menu-btn {
+    svg {
+      width: 28px;
+    }
+  }
+
+  &__logo {
+    text-align: center;
+
+    a {
+      color: var(--font-color);
+      font-size: var(--font-size-base);
+
+      // Highlight effect on the "B" character in logo
+      span {
+        color: #ff7f50;
+        font-size: 1.4rem;
+        transform: skewX(-90deg); // Dynamic, energetic effect on the "B"
+        text-shadow: none;
+      }
+    }
+  }
+  &__icon-nav {
+    // Flex layout for row direction and align-item and justify-content center and gap is 0.5em
+    @include mixins.flex(row, center, center, 0.8em);
+  }
+  &__search-box {
+    display: none;
+  }
+  &__wishlist-icon-btn,
+  &__cart-icon-btn {
+    position: relative;
+  }
+}
+
+// Media Query: screen size 375px;
+@include mixins.mediaQuery(xs) {
+  .header {
+    svg {
+      width: 24px;
+    }
+
+    &__mobie-menu-btn {
+      button {
+        transition: transform 1000ms ease-in;
+      }
+
+      svg {
+        width: 32px;
+      }
+    }
+
+    svg:hover {
+      stroke: var(--highlight-color);
+    }
+  }
+}
+
+// Media Query: screen size 992px;
+@include mixins.mediaQuery(lg) {
+  .header {
+    padding: 0.4em 1em;
+    &__mobie-menu-btn {
+      display: none;
+    }
+
+    &__logo {
+      text-align: center;
+
+      a {
+        font-size: var(--font-size-md);
+
+        span {
+          font-size: 2rem;
+        }
+      }
+    }
+
+    &__mobile-seach-close{
+      display: none;
+    }
+    .header__search-icon-btn {
+      display: none;
+    }
+  }
+}

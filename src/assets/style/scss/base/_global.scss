@@ -1,0 +1,35 @@
+body {
+  font-family: var(--font-family-base);
+}
+
+svg {
+  width: 24px;
+  stroke: black;
+}
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.item-count-badge {
+  position: absolute;
+  top: -8px;
+  left: 15px;
+  background-color: var(--background-color-002);
+  color: var(--font-color-003);
+  font-size: 12px;
+  // padding: 0.1em;
+  width: 1.5em;
+  height: 1.5em;
+  // line-height: 1em;
+  text-align: center;
+  z-index: 9999;
+  display: none;
+}
+
+.box-shadow-1 {
+  -webkit-box-shadow: 0 1px 5px 0px rgba(0, 0, 0, 0.2); 
+  box-shadow: 0 1px 5px 0px rgba(0, 0, 0, 0.2); 
+  border-radius: 40px;
+}

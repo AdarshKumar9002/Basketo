@@ -1,0 +1,80 @@
+@use "../abstract/mixins";
+
+.header {
+  &__search-box {
+
+    form {
+      @include mixins.flex(row, center, center, 0.2em);
+    }
+
+    input {
+      border: none;
+      width: 100%;
+      padding: 0.3em;
+      background: transparent;
+
+      &[placeholder] {
+        font-size: var(--font-size-base);
+      }
+    }
+
+    button {
+      padding: 0.3em;
+      padding-top: 0.5em;
+      svg {
+        width: 20px;
+        stroke: var(--font-color);
+      }
+    }
+  }
+
+  &__mobile-search-box {
+    @include mixins.flex(column, flex-start, center);
+    position: absolute;
+    background: var(--background-color);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100dvh;
+    z-index: 99999;
+    padding: 2em 1em;
+
+    input {
+      outline: none;
+    }
+  }
+  &__mobile-seach-close {
+    position: absolute;
+    bottom: 2em;
+    button {
+      padding: 0.3em 0.8em;
+      font-weight: bold;
+      text-transform: capitalize;
+      &:hover,
+      &:active {
+        transform: scale(1.2);
+        transition: transform 800ms ease-in-out;
+      }
+    }
+  }
+}
+
+// Media Query: screen size 992px;
+@include mixins.mediaQuery(lg) {
+  .header {
+    &__search-box {
+      padding: 0 0.5em;
+      display: block;
+      width: clamp(20em, 45%, 40em);
+      form {
+        box-shadow: none;
+      }
+    }
+    &__mobile-seach-close {
+      display: none;
+    }
+    .header__search-icon-btn {
+      display: none;
+    }
+  }
+}
