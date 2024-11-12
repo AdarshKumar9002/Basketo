@@ -9,7 +9,7 @@
     "lint:eslint": "eslint --fix .",
     "lint:prettier": "prettier --write .",
     "scss": "sass --watch ./src/assets/style/scss:./src/assets/style/css",
-    "lint": "npm run lint:eslint && npm run lint:prettier && npm run scss"
+    "lint": "npm run lint:eslint && npm run lint:prettier"
   },
   "keywords": [],
   "author": "",
@@ -34,12 +34,15 @@
     "prettier": "^3.3.3",
     "sass": "^1.80.6",
     "sass-loader": "^16.0.3",
+    "style-loader": "^4.0.0",
     "webpack": "^5.96.1",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^5.1.0"
   },
   "dependencies": {
     "core-js": "^3.39.0",
+    "lucide": "^0.454.0",
+    "material-design-icons": "^3.0.1",
     "regenerator-runtime": "^0.14.1"
   }
 }

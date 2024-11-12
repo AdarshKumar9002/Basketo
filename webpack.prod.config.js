@@ -3,17 +3,21 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
-// const BabelLoader = require('babel-loader'); 
+// const BabelLoader = require('babel-loader');
 
 module.exports = {
   mode: 'production',
   entry: {
-    home: ['core-js/stable', 'regenerator-runtime/runtime', './src/assets/script/pages/home.js'],  // Polyfills and script entry
+    home: [
+      'core-js/stable',
+      'regenerator-runtime/runtime',
+      './src/assets/script/pages/home.js',
+    ], // Polyfills and script entry
   },
   output: {
-    filename: 'assets/script/bundle-[fullhash].min.js',  
+    filename: 'assets/script/bundle-[fullhash].min.js',
     path: path.resolve(__dirname, 'dist'),
-    sourceMapFilename: 'assets/script/[file].map', 
+    sourceMapFilename: 'assets/script/[file].map',
   },
   module: {
     rules: [
@@ -27,9 +31,9 @@ module.exports = {
               [
                 '@babel/preset-env',
                 {
-                  useBuiltIns: 'entry', 
-                  corejs: 3,  
-                  targets: '> 0.25%, not dead',  
+                  useBuiltIns: 'entry',
+                  corejs: 3,
+                  targets: '> 0.25%, not dead',
                 },
               ],
             ],
@@ -54,22 +58,20 @@ module.exports = {
     ],
   },
   plugins: [
-    new CleanWebpackPlugin(),  
+    new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
-      filename: 'assets/style/bundle-[fullhash].min.css',  
+      filename: 'assets/style/bundle-[fullhash].min.css',
     }),
     new HtmlWebpackPlugin({
       template: './src/index.html',
-      filename: 'index.html', 
+      filename: 'index.html',
     }),
   ],
   optimization: {
     minimize: true,
-    minimizer: [
-      new CssMinimizerPlugin(),  
-    ],
+    minimizer: [new CssMinimizerPlugin()],
   },
-  devtool: 'source-map', 
+  devtool: 'source-map',
   resolve: {
     extensions: ['.js', '.json'],
     modules: [path.resolve(__dirname, 'src'), 'node_modules'],

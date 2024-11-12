@@ -1,5 +1,4 @@
 const path = require('path');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
@@ -9,14 +8,15 @@ module.exports = {
     home: './src/assets/script/pages/home.js',
   },
   output: {
-    filename: 'assets/script/bundle-[fullhash].js',
+    filename: 'assets/script/bundle-[hash].js',
     path: path.resolve(__dirname, 'dist'),
+    sourceMapFilename: 'assets/script/[file].map',
   },
   module: {
     rules: [
       {
         test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
+        use: ['style-loader', 'css-loader', 'postcss-loader'],
       },
       {
         test: /\.html$/,
@@ -33,9 +33,6 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(),
-    new MiniCssExtractPlugin({
-      filename: 'assets/style/bundle-[fullhash].css',
-    }),
     new HtmlWebpackPlugin({
       template: './src/index.html',
       filename: 'index.html',
@@ -48,9 +45,12 @@ module.exports = {
     hot: true,
     open: true,
     port: 8080,
+    compress: true,
+    historyApiFallback: true,
   },
+  devtool: 'eval-source-map',
   resolve: {
-    extensions: ['.js', '.jsx', '.json'],
+    extensions: ['.js', '.json'],
     modules: [path.resolve(__dirname, 'src'), 'node_modules'],
   },
 };
