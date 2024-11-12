@@ -84,7 +84,7 @@
         <a href="/"><span>B</span>asketo</a>
       </div>
 
-      <nav class="header__nav" role="navigation">
+      <nav class="header__nav">
         <ul>
           <li><a href="/">Home</a></li>
           <li>
@@ -112,10 +112,12 @@
 
       <div class="header__search-box box-shadow-1">
         <div class="header__mobile-seach-close">
-          <button id="mobile-search-close" class="box-shadow-1 btn-primary">Close</button>
+          <button id="mobile-search-close" class="mobile-search-btn box-shadow-1 btn-primary">
+            Close
+          </button>
         </div>
-        <form class="box-shadow-1" action="">
-          <button type="submit">
+        <form class="box-shadow-1">
+          <button type="submit" aria-label="Search">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -141,7 +143,7 @@
 
       <div class="header__icon-nav">
         <!-- Search Icon -->
-        <button id="search-icon-btn" class="header__search-icon-btn">
+        <button id="search-icon-btn" class="header__search-icon-btn mobile-search-btn" aria-label="Search button">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
@@ -158,7 +160,7 @@
         </button>
 
         <!-- Profile Icon -->
-        <button class="header__profile-icon-btn">
+        <button class="header__profile-icon-btn" aria-label="Click to open Profile">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
@@ -175,7 +177,7 @@
         </button>
 
         <!-- Wishlist Icon -->
-        <a class="header__wishlist-icon-btn" href="#">
+        <a class="header__wishlist-icon-btn" href="#" aria-label="click to go to Wishlist page">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
@@ -194,7 +196,7 @@
         </a>
 
         <!-- Cart Icon -->
-        <a class="header__cart-icon-btn" href="#">
+        <a class="header__cart-icon-btn" href="#" aria-label="click to go to cart page">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
