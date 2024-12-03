@@ -4,7 +4,9 @@
   // Flex layout for row direction and  justify-content: center, align-item: space-between.
   @include mixins.flex(row, space-between, center);
   padding: 0.93em;
-  position: relative;
+  position: fixed;
+  z-index: 9999;
+  width: 100%;
 
   svg {
     width: 20px;

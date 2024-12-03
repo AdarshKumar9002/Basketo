@@ -48,7 +48,7 @@ module.exports = {
     compress: true,
     historyApiFallback: true,
   },
-  devtool: 'eval-source-map',
+  // devtool: 'eval-source-map',
   resolve: {
     extensions: ['.js', '.json'],
     modules: [path.resolve(__dirname, 'src'), 'node_modules'],

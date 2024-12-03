@@ -1,7 +1,12 @@
 import '../../style/css/pages/home.css';
-import toggleSearchBox from '../component/header/search-mobile.js';
 
 // JS Imports
+import Carousel from '../component/carousel/carousel.js';
+import toggleSearchBox from '../component/header/search-mobile.js';
+
+// Class Instances
+const carousel = new Carousel();
+
 
 /* ============ Header ============ */
 
@@ -29,3 +34,9 @@ const toggleSearch = () => {
 };
 
 toggleSearch();
+
+
+/* ============ Carousel ============ */
+
+document.addEventListener('DOMContentLoaded', carousel.eventListeners.bind(carousel));
+document.addEventListener('DOMContentLoaded', carousel.autoChangeSlides);

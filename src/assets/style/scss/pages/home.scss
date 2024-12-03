@@ -5,6 +5,6 @@
 @use "../abstract/animations";
 @use "../base/global";
 @use "../layout/header";
-@use "../components/search-box";
 @use "../layout/navigation";
-// @use '';
+@use "../components/search-box";
+@use '../components/carousel';

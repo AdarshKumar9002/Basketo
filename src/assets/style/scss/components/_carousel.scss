@@ -1,0 +1,99 @@
+@use "../abstract/mixins";
+
+.carousel {
+  width: 100%;
+  height: 100dvh;
+  overflow: hidden;
+  position: relative;
+  margin: auto;
+
+  > button {
+    position: absolute;
+    top: 50%;
+    z-index: 99999;
+    display: none;
+    &.hidden {
+      display: none;
+    }
+  }
+
+  &__prev-btn {
+    left: 1em;
+  }
+
+  &__next-btn {
+    right: 1em;
+  }
+
+  &__track-container {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  &__track {
+    position: relative;
+    height: 100%;
+    transition: transform 250ms ease-in;
+  }
+
+  &__slide {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+  }
+
+  &__slide-image {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__slide-details {
+    position: absolute;
+    top: 15em;
+    left: 1.5em;
+  }
+  &__dot-indicator {
+    position: absolute;
+    bottom: 1em;
+    width: 100%;
+    ul {
+      gap: 0.5em;
+    }
+  }
+
+  &__indicator-btn {
+    button {
+      background: #0000005e;
+      border-radius: 50%;
+      width: 1em;
+      height: 1em;
+    }
+
+    &--active {
+      button {
+        background: #000000b7;
+      }
+    }
+  }
+}
+
+@include mixins.mediaQuery(md) {
+  .carousel {
+    > button {
+      display: block;
+    }
+    &__slide-details {
+      left: 6em;
+    }
+  }
+}
